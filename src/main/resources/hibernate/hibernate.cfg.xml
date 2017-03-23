@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- Connection for Oracle -->
+    <property name="connection.url">jdbc:oracle:thin:@slinky.adea.com.mx:1521:slinky</property>
+    <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="connection.username">visantillan</property>
+    <property name="connection.password">C1nthy4*1011</property>
+    <property name="show_sql">true</property>
+
+    <!-- DB schema will be updated if needed -->
+    <!--<property name="hbm2ddl.auto">update</property> -->
+
+	</session-factory>
+</hibernate-configuration>
