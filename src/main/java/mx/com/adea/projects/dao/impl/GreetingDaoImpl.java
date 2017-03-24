@@ -3,14 +3,12 @@ package mx.com.adea.projects.dao.impl;
 import mx.com.adea.projects.beans.Greeting;
 import mx.com.adea.projects.beans.OtherUser;
 import mx.com.adea.projects.dao.GreetingDao;
-import mx.com.adea.projects.model.User;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Creado por visantillan el 16/03/2017.
@@ -35,7 +33,7 @@ public class GreetingDaoImpl implements GreetingDao {
 
 		boolean existe = mongoOps.collectionExists("projects");
 		p.setId(objectId.toString());
-		p.setContent("No funciona");
+		p.setContent("Holaaaaaaaaa");
 		mongoOps.insert(p, "projects");
 		List<OtherUser> list = mongoOps.findAll(OtherUser.class);
 		System.out.println(existe);
