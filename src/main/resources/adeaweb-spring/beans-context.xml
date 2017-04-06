@@ -7,4 +7,10 @@
 		<constructor-arg ref="anotherMongoTemplate"/>
 	</bean>
 
+	<bean id="userDao" class="mx.com.adea.projects.dao.impl.UserDaoImpl">
+		<constructor-arg ref="anotherMongoTemplate"/>
+	</bean>
+
+  <bean id="filterCors" class="mx.com.adea.projects.util.SimpleCORSFilter"/>
+
 </beans>

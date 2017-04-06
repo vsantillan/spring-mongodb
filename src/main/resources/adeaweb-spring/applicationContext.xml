@@ -1,65 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-						 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-						 xmlns:beans="http://www.springframework.org/schema/beans"
-						 xmlns:context="http://www.springframework.org/schema/context"
-						 xmlns:mvc="http://www.springframework.org/schema/mvc"
-						 xsi:schemaLocation="
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xsi:schemaLocation="
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-	<!-- Imports others config xml files-->
-	<beans:import resource="classpath:/mongo/mongo-context.xml"/>
-	<beans:import resource="classpath:/hibernate/hibernate-context.xml"/>
-	<beans:import resource="classpath:/adeaweb-spring/beans-context.xml"/>
+  <!-- Imports others config xml files-->
+  <beans:import resource="classpath:/mongo/mongo-context.xml"/>
+  <beans:import resource="classpath:/hibernate/hibernate-context.xml"/>
+  <beans:import resource="classpath:/adeaweb-spring/beans-context.xml"/>
 
-	<context:component-scan base-package="mx.com.adea.projects.controllers"/>
-	<!--<context:component-scan base-package="mx.com.adea.projects.dao"/>-->
-	<mvc:annotation-driven/>
+  <context:component-scan base-package="mx.com.adea.projects.controllers"/>
+  <!--<context:component-scan base-package="mx.com.adea.projects.dao"/>-->
+  <mvc:annotation-driven/>
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/"/>
+  <!-- Habilita CORS -->
+  <mvc:cors>
+    <mvc:mapping path="/**" />
+  </mvc:cors>
 
-	<!--
-			CSRF protection. Here we only include the CsrfFilter instead of all of Spring Security.
-			See http://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/#csrf for more information on
-			Spring Security's CSRF protection
-	-->
-	<beans:bean id="csrfFilter" class="org.springframework.security.web.csrf.CsrfFilter">
-		<beans:constructor-arg>
-			<beans:bean
-					class="org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository"/>
-		</beans:constructor-arg>
-	</beans:bean>
-	<!--
-			Provides automatic CSRF token inclusion when using Spring MVC Form tags or Thymeleaf. See
-			http://localhost:8080/#forms and form.jsp for examples
-	-->
-	<beans:bean id="requestDataValueProcessor"
-							class="org.springframework.security.web.servlet.support.csrf.CsrfRequestDataValueProcessor"/>
+  <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+  <resources mapping="/resources/**" location="/resources/"/>
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/application/"/>
-		<beans:property name="suffix" value=".jsp"/>
-	</beans:bean>
+  <!--
+      CSRF protection. Here we only include the CsrfFilter instead of all of Spring Security.
+      See http://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/#csrf for more information on
+      Spring Security's CSRF protection
+  -->
+  <beans:bean id="csrfFilter" class="org.springframework.security.web.csrf.CsrfFilter">
+    <beans:constructor-arg>
+      <beans:bean
+          class="org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository"/>
+    </beans:constructor-arg>
+  </beans:bean>
+  <!--
+      Provides automatic CSRF token inclusion when using Spring MVC Form tags or Thymeleaf. See
+      http://localhost:8080/#forms and form.jsp for examples
+  -->
+  <beans:bean id="requestDataValueProcessor"
+              class="org.springframework.security.web.servlet.support.csrf.CsrfRequestDataValueProcessor"/>
 
-	<!-- Configure to plugin JSON as request and response in method handler -->
-	<beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-		<beans:property name="messageConverters">
-			<beans:list>
-				<beans:ref bean="jsonMessageConverter"/>
-			</beans:list>
-		</beans:property>
-	</beans:bean>
+  <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+  <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <beans:property name="prefix" value="/WEB-INF/application/"/>
+    <beans:property name="suffix" value=".jsp"/>
+  </beans:bean>
 
-	<!-- Configure bean to convert JSON to POJO and vice versa -->
-	<beans:bean id="jsonMessageConverter"
-							class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-	</beans:bean>
+  <!-- Configure to plugin JSON as request and response in method handler -->
+  <beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+    <beans:property name="messageConverters">
+      <beans:list>
+        <beans:ref bean="jsonMessageConverter"/>
+      </beans:list>
+    </beans:property>
+  </beans:bean>
+
+  <!-- Configure bean to convert JSON to POJO and vice versa -->
+  <beans:bean id="jsonMessageConverter"
+              class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+  </beans:bean>
 
 
 </beans:beans>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Crated by Victor Santillán on 01/08/2016.
+ * Created by Victor Santillán on 01/08/2016.
  * visantillan@adeamexico.com.mx
  */
 @RestController
@@ -32,8 +32,16 @@ public class HelloController {
 
   @RequestMapping(value = "/greeting.action", method = RequestMethod.GET, produces = "application/json")
   public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-    greetingDao.create(new Greeting());
+    greetingDao.create(new Greeting(ObjectId.get().toString(), String.format(template, name)));
     return new Greeting(ObjectId.get().toString(), String.format(template, name));
+  }
+
+  @RequestMapping(value = "/greeting.xml.action", method = RequestMethod.GET, produces = "application/xml")
+  public Greeting greetingXml(@RequestParam(value = "name", defaultValue = "World") String name) {
+    Greeting greeting = new Greeting();
+    greeting.setId(ObjectId.get().toString());
+    greeting.setContent(String.format(template, name));
+    return greeting;
   }
 
 //	@RequestMapping(value = "/getAllProjects.action")
@@ -45,14 +53,6 @@ public class HelloController {
 //	public Greeting saveAplicacion(@RequestParam(value = "name", defaultValue = "World") String name) {
 //		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 //	}
-
-  @RequestMapping(value = "/greeting.xml.action", method = RequestMethod.GET, produces = "application/xml")
-  public Greeting greetingXml(@RequestParam(value = "name", defaultValue = "World") String name) {
-    Greeting greeting = new Greeting();
-    greeting.setId(ObjectId.get().toString());
-    greeting.setContent(String.format(template, name));
-    return greeting;
-  }
 
 //	@CrossOrigin
 //	@RequestMapping(value = "/testmap.action")
