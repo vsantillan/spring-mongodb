@@ -5,9 +5,13 @@ import mx.com.adea.projects.dao.UserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -41,6 +45,21 @@ public class UserController {
   public void deleteUser(@RequestParam(value = "login", defaultValue = "World") String login) {
     logger.debug("Eliminado");
     logger.debug(login);
+  }
+
+  @CrossOrigin
+  @RequestMapping(value = "/updateUser.action", method = RequestMethod.POST, produces = "application/json")
+  public ResponseEntity updateUser(@RequestBody User user) {
+    logger.debug("Eliminado");
+    logger.debug(user.getLogin());
+    User usuario = new User();
+    Map<String, User> result = new HashMap<>();
+    usuario.setLogin("aryaza")
+    usuario.setNombre("nombre completo");
+    usuario.setArea("DAT");
+    usuario.setEstatus('A');
+    result.put("user", usuario);
+    return new ResponseEntity<>(result, HttpStatus.OK);
   }
 
 //	@CrossOrigin
