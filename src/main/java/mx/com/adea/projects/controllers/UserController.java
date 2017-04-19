@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Created by Victor Santillán on 01/08/2016.
@@ -22,11 +21,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("users")
 public class UserController {
 
-  private final UserDao userDao;
-
   private final Logger logger = LoggerFactory.getLogger(UserController.class);
-
-  private final AtomicLong counter = new AtomicLong();
+  private final UserDao userDao;
 
   @Autowired
   public UserController(UserDao greetingDao) {
@@ -36,13 +32,12 @@ public class UserController {
   @CrossOrigin
   @RequestMapping(value = "/getAllUsers.action", method = RequestMethod.GET)
   public List<User> getAllUsers(@RequestParam(value = "name", defaultValue = "World") String name) {
-    List<User> usersList = userDao.getAllUsers();
-    return usersList;
+    return userDao.getAllUsers();
   }
 
   @CrossOrigin
-  @RequestMapping(value = "/deleteUser.action", method = RequestMethod.DELETE)
-  public void deleteUser(@RequestParam(value = "login", defaultValue = "World") String login) {
+  @RequestMapping(value = "/deleteUser.action/{login}", method = RequestMethod.DELETE)
+  public void deleteUser(@PathVariable String login) {
     logger.debug("Eliminado");
     logger.debug(login);
   }
@@ -54,7 +49,7 @@ public class UserController {
     logger.debug(user.getLogin());
     User usuario = new User();
     Map<String, User> result = new HashMap<>();
-    usuario.setLogin("aryaza")
+    usuario.setLogin("aryaza");
     usuario.setNombre("nombre completo");
     usuario.setArea("DAT");
     usuario.setEstatus('A');
