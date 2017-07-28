@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,7 @@ import java.util.Map;
  * visantillan@adeamexico.com.mx
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:1841", maxAge = 3600)
 @RequestMapping("users")
 public class UserController {
 
@@ -29,32 +31,39 @@ public class UserController {
     this.userDao = greetingDao;
   }
 
-  @CrossOrigin
   @RequestMapping(value = "/getAllUsers.action", method = RequestMethod.GET)
   public List<User> getAllUsers(@RequestParam(value = "name", defaultValue = "World") String name) {
     return userDao.getAllUsers();
   }
 
-  @CrossOrigin
   @RequestMapping(value = "/deleteUser.action/{login}", method = RequestMethod.DELETE)
-  public void deleteUser(@PathVariable String login) {
+  public @ResponseBody
+  void deleteUser(@PathVariable String login) {
+    System.out.println("Hola");
     logger.debug("Eliminado");
     logger.debug(login);
   }
 
-  @CrossOrigin
-  @RequestMapping(value = "/updateUser.action", method = RequestMethod.POST, produces = "application/json")
+  @RequestMapping(value = "/updateUser.action", method = RequestMethod.POST)
   public ResponseEntity updateUser(@RequestBody User user) {
     logger.debug("Eliminado");
     logger.debug(user.getLogin());
     User usuario = new User();
     Map<String, User> result = new HashMap<>();
-    usuario.setLogin("aryaza");
+    usuario.setLogin("aryaz");
     usuario.setNombre("nombre completo");
     usuario.setArea("DAT");
     usuario.setEstatus('A');
     result.put("user", usuario);
     return new ResponseEntity<>(result, HttpStatus.OK);
+  }
+
+  @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
+  public void corsHeaders(HttpServletResponse response) {
+    response.addHeader("Access-Control-Allow-Origin", "*");
+    response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with");
+    response.addHeader("Access-Control-Max-Age", "3600");
   }
 
 //	@CrossOrigin

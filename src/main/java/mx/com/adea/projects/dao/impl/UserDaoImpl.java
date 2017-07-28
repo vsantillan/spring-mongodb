@@ -1,5 +1,6 @@
 package mx.com.adea.projects.dao.impl;
 
+import com.mongodb.DBCollection;
 import mx.com.adea.projects.beans.User;
 import mx.com.adea.projects.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     return null;
+  }
+
+  @Override
+  public void inserUser(User user) {
+    DBCollection collection = mongoOps.getCollection("apusers");
+
+
   }
 }
