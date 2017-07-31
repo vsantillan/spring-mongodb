@@ -13,6 +13,7 @@
 
   <!-- Imports others config xml files-->
   <beans:import resource="classpath:/mongo/mongo-context.xml"/>
+  <beans:import resource="classpath:/adeaweb-spring/security.xml"/>
   <!--<beans:import resource="classpath:/hibernate/hibernate-context.xml"/>-->
   <beans:import resource="classpath:/adeaweb-spring/beans-context.xml"/>
 

@@ -1,97 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<property name="ADEAWEB_PROJECTS" value="C:\\var\\logs\\adeaweb-projects"/>
+  <property name="ADEAWEB_PROJECTS" value="C:\\var\\logs\\adeaweb-projects"/>
 
-	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-		<layout class="ch.qos.logback.classic.PatternLayout">
-			<Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</Pattern>
-		</layout>
-	</appender>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+    </layout>
+  </appender>
 
-	<appender name="FILE-AUDIT"
-						class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${ADEAWEB_PROJECTS}/debug.log</file>
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<Pattern>
-				%d{yyyy-MM-dd HH:mm:ss} - %msg%n
-			</Pattern>
-		</encoder>
+  <appender name="FILE-AUDIT"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${ADEAWEB_PROJECTS}/debug.log</file>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>
+        %d{yyyy-MM-dd HH:mm:ss} - %msg%n
+      </Pattern>
+    </encoder>
 
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- rollover daily -->
-			<fileNamePattern>${ADEAWEB_PROJECTS}/archived/debug.%d{yyyy-MM-dd}.%i.log
-			</fileNamePattern>
-			<timeBasedFileNamingAndTriggeringPolicy
-					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-				<maxFileSize>10MB</maxFileSize>
-			</timeBasedFileNamingAndTriggeringPolicy>
-		</rollingPolicy>
-	</appender>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- rollover daily -->
+      <fileNamePattern>${ADEAWEB_PROJECTS}/archived/debug.%d{yyyy-MM-dd}.%i.log
+      </fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy
+          class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>10MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+  </appender>
 
-	<appender name="FILE-APP"
-						class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${ADEAWEB_PROJECTS}/adeawebprojects.log</file>
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</Pattern>
-		</encoder>
+  <appender name="FILE-APP"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${ADEAWEB_PROJECTS}/adeawebprojects.log</file>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+    </encoder>
 
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- rollover daily -->
-			<fileNamePattern>${ADEAWEB_PROJECTS}/archived/adeawebprojects.%d{yyyy-MM-dd}.%i.log
-			</fileNamePattern>
-			<timeBasedFileNamingAndTriggeringPolicy
-					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-				<maxFileSize>10MB</maxFileSize>
-			</timeBasedFileNamingAndTriggeringPolicy>
-		</rollingPolicy>
-	</appender>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- rollover daily -->
+      <fileNamePattern>${ADEAWEB_PROJECTS}/archived/adeawebprojects.%d{yyyy-MM-dd}.%i.log
+      </fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy
+          class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>10MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+  </appender>
 
-	<appender name="FILE-ERROR"
-						class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${ADEAWEB_PROJECTS}/error.log</file>
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<Pattern>
-				%d{yyyy-MM-dd HH:mm:ss} - %msg%n
-			</Pattern>
-		</encoder>
+  <appender name="FILE-ERROR"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${ADEAWEB_PROJECTS}/error.log</file>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>
+        %d{yyyy-MM-dd HH:mm:ss} - %msg%n
+      </Pattern>
+    </encoder>
 
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- rollover daily -->
-			<fileNamePattern>${ADEAWEB_PROJECTS}/archived/error.%d{yyyy-MM-dd}.%i.log
-			</fileNamePattern>
-			<timeBasedFileNamingAndTriggeringPolicy
-					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-				<maxFileSize>10MB</maxFileSize>
-			</timeBasedFileNamingAndTriggeringPolicy>
-		</rollingPolicy>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- rollover daily -->
+      <fileNamePattern>${ADEAWEB_PROJECTS}/archived/error.%d{yyyy-MM-dd}.%i.log
+      </fileNamePattern>
+      <timeBasedFileNamingAndTriggeringPolicy
+          class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>10MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
 
-	</appender>
+  </appender>
 
-	<logger name="org.springframework" level="info" additivity="false">
-		<appender-ref ref="FILE-AUDIT"/>
-		<appender-ref ref="STDOUT"/>
-	</logger>
+  <logger name="org.springframework" level="info" additivity="false">
+    <appender-ref ref="FILE-AUDIT"/>
+    <appender-ref ref="STDOUT"/>
+  </logger>
 
-	<logger name="org.hibernate" level="info" additivity="false">
-		<appender-ref ref="FILE-AUDIT"/>
-		<appender-ref ref="STDOUT"/>
-	</logger>
+  <logger name="org.springframework.security" level="info" additivity="false">
+    <appender-ref ref="FILE-AUDIT"/>
+    <appender-ref ref="STDOUT"/>
+  </logger>
 
-	<logger name="org.springframework.data.mongodb.core.aggregation" level="debug" additivity="false">
-		<appender-ref ref="FILE-AUDIT"/>
-		<appender-ref ref="STDOUT"/>
-	</logger>
+  <logger name="org.hibernate" level="info" additivity="false">
+    <appender-ref ref="FILE-AUDIT"/>
+    <appender-ref ref="STDOUT"/>
+  </logger>
 
-	<!-- Send logs to both console and file audit -->
-	<logger name="mx.com.adea.projects.controllers" level="info"
-					additivity="false">
-		<appender-ref ref="FILE-APP"/>
-		<appender-ref ref="STDOUT"/>
-	</logger>
+  <logger name="org.springframework.data.mongodb.core.aggregation" level="debug" additivity="false">
+    <appender-ref ref="FILE-AUDIT"/>
+    <appender-ref ref="STDOUT"/>
+  </logger>
 
-	<root level="error">
-		<appender-ref ref="FILE-ERROR"/>
-	</root>
+  <!-- Send logs to both console and file audit -->
+  <logger name="mx.com.adea.projects.controllers" level="info"
+          additivity="false">
+    <appender-ref ref="FILE-APP"/>
+    <appender-ref ref="STDOUT"/>
+  </logger>
+
+  <root level="error">
+    <appender-ref ref="FILE-ERROR"/>
+  </root>
 
 </configuration>
