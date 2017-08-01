@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-  <property name="ADEAWEB_PROJECTS" value="C:\\var\\logs\\adeaweb-projects"/>
+  <property name="ADEAWEB_PROJECTS" value="C:\\var\\logs\\lexa"/>
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <layout class="ch.qos.logback.classic.PatternLayout">
@@ -73,7 +73,7 @@
     <appender-ref ref="STDOUT"/>
   </logger>
 
-  <logger name="org.springframework.security" level="info" additivity="false">
+  <logger name="org.springframework.security" level="debug" additivity="false">
     <appender-ref ref="FILE-AUDIT"/>
     <appender-ref ref="STDOUT"/>
   </logger>
@@ -89,7 +89,7 @@
   </logger>
 
   <!-- Send logs to both console and file audit -->
-  <logger name="mx.com.adea.projects.controllers" level="info"
+  <logger name="mx.com.adea.lexa.controllers" level="info"
           additivity="false">
     <appender-ref ref="FILE-APP"/>
     <appender-ref ref="STDOUT"/>

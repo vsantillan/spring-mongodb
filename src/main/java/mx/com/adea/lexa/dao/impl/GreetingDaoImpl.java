@@ -1,16 +1,15 @@
-package mx.com.adea.projects.dao.impl;
+package mx.com.adea.lexa.dao.impl;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
-import mx.com.adea.projects.beans.Greeting;
-import mx.com.adea.projects.beans.OtherUser;
-import mx.com.adea.projects.dao.GreetingDao;
+import mx.com.adea.lexa.beans.Greeting;
+import mx.com.adea.lexa.beans.OtherUser;
+import mx.com.adea.lexa.dao.GreetingDao;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -42,10 +41,10 @@ public class GreetingDaoImpl implements GreetingDao {
         (DBObject) JSON.parse("{\"id\":\"58d936539ce54a156f3da4ae\",\"content\":\"Hello, Cinthya!\"}");
 
     //DBObject dbObject1 = (DBObject) JSON.parse("hello");
-    DBCollection cursor = mongoOps.getCollection("projects");
+    DBCollection cursor = mongoOps.getCollection("lexa");
 
-    boolean existe = mongoOps.collectionExists("projects");
-    mongoOps.insert(p, "projects");
+    boolean existe = mongoOps.collectionExists("lexa");
+    mongoOps.insert(p, "lexa");
     List<OtherUser> list = mongoOps.findAll(OtherUser.class);
     System.out.println(existe);
   }

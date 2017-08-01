@@ -1,7 +1,7 @@
-package mx.com.adea.projects.controllers;
+package mx.com.adea.lexa.controllers;
 
-import mx.com.adea.projects.beans.Greeting;
-import mx.com.adea.projects.dao.GreetingDao;
+import mx.com.adea.lexa.beans.Greeting;
+import mx.com.adea.lexa.dao.GreetingDao;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

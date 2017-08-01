@@ -1,6 +1,6 @@
-package mx.com.adea.projects.dao;
+package mx.com.adea.lexa.dao;
 
-import mx.com.adea.projects.beans.Greeting;
+import mx.com.adea.lexa.beans.Greeting;
 
 /**
  * Creado por visantillan el 16/03/2017.

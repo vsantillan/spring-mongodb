@@ -11,22 +11,28 @@
 
   <http entry-point-ref="restAuthenticationEntryPoint">
 
-    <intercept-url pattern="/users/**" access="hasRole('ROLE_ADMIN')"/>
+    <intercept-url pattern="/" access="permitAll"/>
+
+    <intercept-url pattern="/login**" access="permitAll"/>
+
+    <intercept-url pattern="/api/user/**" access="hasRole('ROLE_USER')"/>
 
     <csrf disabled="true"/>
 
+    <cors/>
+
     <http-basic/>
 
-    <!--<form-login
-        authentication-success-handler-ref="mySuccessHandler"
-        authentication-failure-handler-ref="myFailureHandler"
-    />-->
+    <form-login
+    authentication-success-handler-ref="mySuccessHandler"
+    authentication-failure-handler-ref="myFailureHandler"
+    />
 
-    <logout delete-cookies="true" />
+    <logout invalidate-session="true" />
   </http>
 
   <beans:bean id="mySuccessHandler"
-              class="mx.com.adea.projects.security.MySavedRequestAwareAuthenticationSuccessHandler"/>
+              class="mx.com.adea.lexa.security.MySavedRequestAwareAuthenticationSuccessHandler"/>
   <beans:bean id="myFailureHandler" class=
       "org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"/>
 

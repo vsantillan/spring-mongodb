@@ -1,4 +1,4 @@
-package mx.com.adea.projects.security;
+package mx.com.adea.lexa.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

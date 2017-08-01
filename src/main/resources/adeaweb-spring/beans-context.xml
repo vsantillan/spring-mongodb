@@ -3,16 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="mongoDao" class="mx.com.adea.projects.dao.impl.GreetingDaoImpl">
+  <bean id="mongoDao" class="mx.com.adea.lexa.dao.impl.GreetingDaoImpl">
     <constructor-arg ref="anotherMongoTemplate"/>
   </bean>
 
-  <bean id="userDao" class="mx.com.adea.projects.dao.impl.UserDaoImpl">
+  <bean id="userDao" class="mx.com.adea.lexa.dao.impl.UserDaoImpl">
     <constructor-arg ref="anotherMongoTemplate"/>
   </bean>
 
-  <bean id="restAuthenticationEntryPoint" class="mx.com.adea.projects.security.RestAuthenticationEntryPoint"/>
-
-  <bean id="filterCors" class="mx.com.adea.projects.util.SimpleCORSFilter"/>
+  <bean id="restAuthenticationEntryPoint" class="mx.com.adea.lexa.security.RestAuthenticationEntryPoint"/>
 
 </beans>

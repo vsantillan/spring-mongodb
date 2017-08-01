@@ -1,4 +1,4 @@
-package mx.com.adea.projects.beans;
+package mx.com.adea.lexa.beans;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

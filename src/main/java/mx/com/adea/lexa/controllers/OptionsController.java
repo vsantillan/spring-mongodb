@@ -1,4 +1,4 @@
-package mx.com.adea.projects.controllers;
+package mx.com.adea.lexa.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

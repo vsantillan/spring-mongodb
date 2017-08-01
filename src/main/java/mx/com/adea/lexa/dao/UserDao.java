@@ -1,6 +1,6 @@
-package mx.com.adea.projects.dao;
+package mx.com.adea.lexa.dao;
 
-import mx.com.adea.projects.beans.User;
+import mx.com.adea.lexa.beans.User;
 
 import java.util.List;
 

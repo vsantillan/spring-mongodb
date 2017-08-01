@@ -1,4 +1,4 @@
-package mx.com.adea.projects.beans;
+package mx.com.adea.lexa.beans;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * Creado por visantillan el 17/03/2017.
  */
-@Document(collection = "projects")
+@Document(collection = "lexa")
 public class OtherUser implements Serializable {
 
 	@Id

@@ -1,4 +1,4 @@
-package mx.com.adea.projects.security;
+package mx.com.adea.lexa.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
