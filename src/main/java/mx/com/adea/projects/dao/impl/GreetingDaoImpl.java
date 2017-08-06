@@ -39,7 +39,7 @@ public class GreetingDaoImpl implements GreetingDao {
     BasicDBObject dbObject = new BasicDBObject();
 
     DBObject doc =
-        (DBObject) JSON.parse("{\"id\":\"58d936539ce54a156f3da4ae\",\"content\":\"Hello, Cinthya!\"}");
+        (DBObject) JSON.parse("{\"id\":\"58d936539ce54a156f3da4ae\",\"content\":\"Hello, Nyla!\"}");
 
     //DBObject dbObject1 = (DBObject) JSON.parse("hello");
     DBCollection cursor = mongoOps.getCollection("projects");

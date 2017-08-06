@@ -11,6 +11,6 @@ public interface UserDao {
 
   List<User> getAllUsers();
 
-  void inserUser(User user);
+  void insertUser(User user);
 
 }

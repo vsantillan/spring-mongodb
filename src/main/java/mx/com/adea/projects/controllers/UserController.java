@@ -57,15 +57,7 @@ public class UserController {
     result.put("user", usuario);
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
-
-  @RequestMapping(value = "/**", method = RequestMethod.OPTIONS)
-  public void corsHeaders(HttpServletResponse response) {
-    response.addHeader("Access-Control-Allow-Origin", "*");
-    response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    response.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, x-requested-with");
-    response.addHeader("Access-Control-Max-Age", "3600");
-  }
-
+  
 //	@CrossOrigin
 //	@RequestMapping(value = "/testmap.action")
 //	public Map<String, ?> testMap(@RequestParam(value = "name", defaultValue = "World") String name) {

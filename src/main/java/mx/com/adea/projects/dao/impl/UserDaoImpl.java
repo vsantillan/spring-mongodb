@@ -29,15 +29,14 @@ public class UserDaoImpl implements UserDao {
     boolean existe = mongoOps.collectionExists("apusers");
 
     if (existe) {
-      List<User> list = mongoOps.findAll(User.class);
-      return list;
+      return mongoOps.findAll(User.class);
     }
 
     return null;
   }
 
   @Override
-  public void inserUser(User user) {
+  public void insertUser(User user) {
     DBCollection collection = mongoOps.getCollection("apusers");
 
 

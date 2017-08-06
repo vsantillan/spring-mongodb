@@ -15,7 +15,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * visantillan@adeamexico.com.mx
  */
 @RestController
-@RequestMapping("users")
+@RequestMapping("hello")
+@CrossOrigin
 public class HelloController {
 
   private final GreetingDao greetingDao;
