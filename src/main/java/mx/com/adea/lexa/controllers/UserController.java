@@ -1,7 +1,7 @@
-package mx.com.adea.projects.controllers;
+package mx.com.adea.lexa.controllers;
 
-import mx.com.adea.projects.beans.User;
-import mx.com.adea.projects.dao.UserDao;
+import mx.com.adea.lexa.beans.User;
+import mx.com.adea.lexa.dao.UserDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ import java.util.Map;
  * visantillan@adeamexico.com.mx
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:1841", maxAge = 3600)
-@RequestMapping("users")
+@CrossOrigin
+@RequestMapping("/api/user")
 public class UserController {
 
   private final Logger logger = LoggerFactory.getLogger(UserController.class);

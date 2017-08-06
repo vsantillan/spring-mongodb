@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>mx.com.adeaweb.projects</groupId>
-  <artifactId>adeaweb-projects</artifactId>
+  <artifactId>lexa</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>adeaweb-projects</name>
+  <name>lexa</name>
   <url>https://www.adea.com.mx/</url>
 
   <properties>
@@ -81,10 +81,15 @@
       <artifactId>aspectjrt</artifactId>
       <version>${org.aspectj-version}</version>
     </dependency>
-    <!-- Security (used for CSRF protection only) -->
+    <!-- Security -->
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
+      <version>${org.springframework.security-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
       <version>${org.springframework.security-version}</version>
     </dependency>
     <!-- Logging -->
@@ -176,6 +181,6 @@
         </configuration>
       </plugin>
     </plugins>
-    <finalName>adeaweb-projects</finalName>
+    <finalName>lexa</finalName>
   </build>
 </project>

@@ -1,8 +1,8 @@
-package mx.com.adea.projects.dao.impl;
+package mx.com.adea.lexa.dao.impl;
 
 import com.mongodb.DBCollection;
-import mx.com.adea.projects.beans.User;
-import mx.com.adea.projects.dao.UserDao;
+import mx.com.adea.lexa.beans.User;
+import mx.com.adea.lexa.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Repository;
